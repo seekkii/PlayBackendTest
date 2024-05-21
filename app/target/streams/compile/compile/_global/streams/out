@@ -1,0 +1,34 @@
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:1:8: not found: object actors[0m
+[0m[[0m[31merror[0m] [0m[0mimport actors.ConfiguredActor[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:2:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.pekko.actor._[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:4:14: object inject is not a member of package javax[0m
+[0m[[0m[31merror[0m] [0m[0mimport javax.inject._[0m
+[0m[[0m[31merror[0m] [0m[0m             ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:5:12: object apache is not a member of package org[0m
+[0m[[0m[31merror[0m] [0m[0mimport org.apache.pekko.actor._[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:6:8: not found: object play[0m
+[0m[[0m[31merror[0m] [0m[0mimport play.api.Configuration[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:7:12: object google is not a member of package com[0m
+[0m[[0m[31merror[0m] [0m[0mimport com.google.inject.AbstractModule[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:8:8: not found: object play[0m
+[0m[[0m[31merror[0m] [0m[0mimport play.api.libs.concurrent.PekkoGuiceSupport[0m
+[0m[[0m[31merror[0m] [0m[0m       ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:10:22: not found: type AbstractModule[0m
+[0m[[0m[31merror[0m] [0m[0mclass Module extends AbstractModule with PekkoGuiceSupport {[0m
+[0m[[0m[31merror[0m] [0m[0m                     ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:10:42: not found: type PekkoGuiceSupport[0m
+[0m[[0m[31merror[0m] [0m[0mclass Module extends AbstractModule with PekkoGuiceSupport {[0m
+[0m[[0m[31merror[0m] [0m[0m                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:12:5: not found: value bindActor[0m
+[0m[[0m[31merror[0m] [0m[0m    bindActor[ConfiguredActor]("configured-actor")[0m
+[0m[[0m[31merror[0m] [0m[0m    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/tung_ph/playFrameworkTest/pain/app/Module.scala:12:15: not found: type ConfiguredActor[0m
+[0m[[0m[31merror[0m] [0m[0m    bindActor[ConfiguredActor]("configured-actor")[0m
+[0m[[0m[31merror[0m] [0m[0m              ^[0m
+[0m[[0m[31merror[0m] [0m[0m11 errors found[0m

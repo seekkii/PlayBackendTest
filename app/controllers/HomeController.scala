@@ -35,8 +35,9 @@ class HomeController @Inject()(ws: WSClient, val controllerComponents: Controlle
         .addQueryStringParameters("search" -> "play")
         .withRequestTimeout(10000.millis)
 
-    val file = new File("Module.scala")
-    postRequest.post(file)
+    //postRequest.post(
+
+    //)
     Ok(views.html.index())
   }
 }

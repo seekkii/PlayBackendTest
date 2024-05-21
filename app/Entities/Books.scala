@@ -1,78 +1,35 @@
 package Entities
-import java.util.Date
-/*{
-    "success": true,
-    "result": [
-        {
-            "id": 1,
-            "status": "Ready",
-            "name": "book1",
-            "author": "author1"
-            "description": "description 1",
-            "purchasedDate": ""2015-10-1 3:00 PM",
-            "category": {
-                    "category_id": 1,
-                    "name": "Japanese"
-            }
-            "createdAt": "2018-10-1 3:00 PM",
-            "updatedAt": "2018-10-1 3:00 PM",
-        }
-    ]
-}
-Error:
 
-{
-  "success": false,
-  "error": {
-    "code": 500,
-    "message": "An error occurred! Can not get book list!"
+import scalikejdbc._
+
+
+
+class Books{
+
+}
+
+object book {
+  Class.forName("org.h2.Driver")
+  ConnectionPool.singleton("jdbc:h2:mem:play;DB_CLOSE_DELAY=-1", "root","" )
+  implicit val session = AutoSession
+
+  val name = "Alice"
+  // implicit session represents java.sql.Connection
+  /*val memberId: Option[Long] = DB readOnly { implicit session =>
+    sql"select id from members where name = ${name}" // don't worry, prevents SQL injection
+      .map(rs => rs.long("id")) // extracts values from rich java.sql.ResultSet
+      .single                   // single, list, traversable
+      .apply()                  // Side effect!!! runs the SQL using Connection
+  }
+
+   */
+  def main(args : Array[String]): Unit = {
+    sql"""
+        create table members (
+        id serial not null primary key,
+        name varchar(64),
+        created_at timestamp not null
+        )""".execute.apply()
   }
 }
-Create new book
-Route	/api/books
-Method	POST
-Parameters
-name: String (*)
-author: String (*)
-purchasedDate: Datetime (*)
-description: String
-categoryId: Long (*)
-Sample Payload
 
-
-{
-    "name": "Book1",
-    "author": "Monkey D Luffy",
-    "purchasedDate": "2015-10-1 3:00 PM",
-    "description": "This is description",
-
-    "categoryId": 1
-}
-
- */
-
-case class category(categoryId: Int, categoryName: String )
-
-case class Book(
- name: String,
- author: String,
- description: String,
- purchaseDate: Date,
-){
-
-}
-
-/*"id": 1,
-"status": "Ready",
-"name": "book1",
-"author": "author1"
-"description": "description 1",
-"purchasedDate": ""2015-10-1 3:00 PM",
-"category": {
-  "category_id": 1,
-  "name": "Japanese"
-}
-"createdAt": "2018-10-1 3:00 PM",
-"updatedAt": "2018-10-1 3:00 PM",
-
- */
