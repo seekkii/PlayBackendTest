@@ -1,21 +1,10 @@
 package Utils
 
-import java.util.Date
+abstract class Varchar(maxLength: Int) {
+  def value: String
+  require(value.length <= maxLength, s"Value exceeds maximum length of $maxLength")
 
-case class Varchar(length: Byte, content: String) {
-  require(content.length <= length)
 }
 
-object Varchar {
-  def apply(length: Byte, content: String = ""): String = {
-    content.take(length)
-  }
-}
+case class Title(value: String) extends Varchar(15)
 
-
-object Test {
-  def main(args: Array[String]): Unit = {
-    val varChar = Varchar(5, "aaaaaassss")
-    println(varChar)
-  }
-}

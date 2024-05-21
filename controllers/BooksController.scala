@@ -8,6 +8,7 @@ import play.api.libs.json.JsPath.\
 import play.api.libs.json.JsValue
 import play.api.mvc._
 import play.libs.Json
+import scalikejdbc.{AutoSession, DBSession, scalikejdbcSQLInterpolationImplicitDef}
 
 import javax.inject.{Inject, Named, Singleton}
 import scala.concurrent.duration.DurationInt
@@ -19,6 +20,7 @@ class BooksController @Inject()
 (implicit val materializer: Materializer) extends AbstractController(components)
   {
     implicit val ec: ExecutionContext = controllerComponents.executionContext
+    implicit val session: DBSession = AutoSession
 
     private def handleGET(): Action[AnyContent] = Action.async{ implicit request:Request[AnyContent] =>
       val source = Source.single(request.hasBody.toString)
@@ -52,8 +54,17 @@ class BooksController @Inject()
       postFuture
     }
 
-
     def handleRequest() : Action[AnyContent] = Action.async{implicit request: Request[AnyContent] =>
+      val accounts = {
+        try sql"select * from accounts".toMap.list.apply()
+        catch { case e: Exception =>
+          sql"create table accounts(name varchar(100) not null)".execute.apply()
+          Seq("Alice", "Bob", "Chris").foreach { name =>
+            sql"insert into accounts values ($name)".update.apply()
+          }
+          sql"select * from accounts".toMap.list.apply()
+        }
+      }
       request.method match{
         case "GET" => handleGET()(request)
         case "POST" => handlePOST()(request)
